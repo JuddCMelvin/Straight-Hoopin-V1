@@ -52,6 +52,19 @@ function drawBalls() {
         ctx.fill(); // Fill the circle with the current fill color
     }
 }
+// Function to check for collisions between basketballs and the basket
+function checkCollisions() {
+    for (let i = 0; i < balls.length; i++) {
+        const ball = balls[i];
+        if (ball.y + ballRadius > basketY && ball.y + ballRadius < basketY + basketHeight &&
+            ball.x > basketX && ball.x < basketX + basketWidth) {
+            // Collision detected
+            balls.splice(i, 1); // Remove the ball from the array
+            score++; // Increment the score
+            generateBall(); // Generate a new ball
+        }
+    }
+}
 
 // Event listeners for keyboard input to move the basket
 document.addEventListener('keydown', (event) => {
@@ -75,6 +88,8 @@ function gameLoop() {
     
     // Draw the basketballs
     drawBalls();
+
+    checkCollisions()
     
     // Request next frame
     requestAnimationFrame(gameLoop);
