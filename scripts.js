@@ -23,9 +23,6 @@ function drawBasket() {
     ctx.fillRect(basketX, canvas.height - basketHeight - 10, basketWidth, basketHeight); // Draw the basket at the bottom of the canvas
 }
 
-// Generate and draw the basket
-drawBasket();
-
 // Function to move the basket
 function moveBasket(direction) {
     if (direction === 'left' && basketX > 0) {
@@ -34,8 +31,21 @@ function moveBasket(direction) {
         basketX += basketSpeed;
     }
 }
+function generateBall() {
+    const ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius;
+    balls.push({ x: ballX, y: 0 });
+}
 
-moveBasket()
+// Function to draw the basketballs
+function drawBalls() {
+    ctx.fillStyle = 'orange'; // Set the fill color to orange
+    for (let i = 0; i < balls.length; i++) { // Loop through each basketball in the balls array
+        const ball = balls[i]; // Get the current basketball object
+        ctx.beginPath(); // Start a new drawing operation
+        ctx.arc(ball.x, ball.y, ballRadius, 0, Math.PI * 2); // Draw a circle for the basketball
+        ctx.fill(); // Fill the circle with the current fill color
+    }
+}
 
 // Event listeners for keyboard input to move the basket
 document.addEventListener('keydown', (event) => {
@@ -61,3 +71,5 @@ function gameLoop() {
 // Start the game loop
 gameLoop();
 
+generateBall();
+moveBasket()
