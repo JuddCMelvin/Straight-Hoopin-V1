@@ -22,7 +22,6 @@ function drawBasket() {
     ctx.fillStyle = 'brown'; 
     ctx.fillRect(basketX, canvas.height - basketHeight - 10, basketWidth, basketHeight); // Draw the basket at the bottom of the canvas
 }
-
 // Function to move the basket
 function moveBasket(direction) {
     if (direction === 'left' && basketX > 0) {
@@ -31,11 +30,18 @@ function moveBasket(direction) {
         basketX += basketSpeed;
     }
 }
+// Function to generate a basketball
 function generateBall() {
-    const ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius;
-    balls.push({ x: ballX, y: 0 });
+    const ballX = Math.random() * (canvas.width - ballRadius * 2) + ballRadius; // Generate a random x-coordinate for the basketball
+    balls.push({ x: ballX, y: 0 }); // Add the basketball object with the generated coordinates to the balls array
 }
-
+// Function to move the basketballs
+function moveBalls() {
+    for (let i = 0; i < balls.length; i++) { // Iterate through each basketball object in the balls array
+        balls[i].y += ballSpeed; // Increment the y-coordinate to simulate downward movement
+    }
+}
+generateBall()
 // Function to draw the basketballs
 function drawBalls() {
     ctx.fillStyle = 'orange'; // Set the fill color to orange
@@ -61,8 +67,14 @@ function gameLoop() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
+   // Move the basketballs
+    moveBalls();
+    
     // Draw the basket
     drawBasket();
+    
+    // Draw the basketballs
+    drawBalls();
     
     // Request next frame
     requestAnimationFrame(gameLoop);
@@ -71,5 +83,4 @@ function gameLoop() {
 // Start the game loop
 gameLoop();
 
-generateBall();
-moveBasket()
+
