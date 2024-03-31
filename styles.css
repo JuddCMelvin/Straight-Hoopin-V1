@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+canvas {
+    display: block;
+    margin: auto;
+    border: 1px solid black;
+}
+main {
+    width: 100%; 
+    height: 100vh; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+#gameScreen {
+    text-align: center;
+}
