@@ -34,6 +34,16 @@ const ballY = 50;
 ball.style.left = ballX + 'px';
 ball.style.top = ballY + 'px';
 
+//AddEvent Listner to get arrow clicks
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowLeft') {
+        console.log('Left arrow key pressed');
+    } else if (event.key === 'ArrowRight') {
+        console.log('right arrow key pressed')
+    }
+});
+
 // function moveBasket(key) {
 //     const step = 10; 
 
