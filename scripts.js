@@ -7,14 +7,14 @@ const basketWidth = 80;
 const basketHeight = 20;
 let basketX = canvas.width / 2 - basketWidth / 2;
 const basketY = canvas.height - basketHeight - 10;
-const basketSpeed = 15;
-let score = 0;
+const basketSpeed = 30;
+
 
 const ballRadius = 10;
 const ballSpeed = 5;
 const balls = [];
 
-
+const score = document.getElementById('score');
 //Functions to create images
 
 // Function to draw the basket
@@ -65,7 +65,12 @@ function checkCollisions() {
         }
     }
 }
-
+// Function to update the score display
+function updateScore() {
+    ctx.fillStyle = 'black';
+    ctx.font = '20px Arial';
+    ctx.fillText('Score: ' + score, 10, 30);
+}
 // Event listeners for keyboard input to move the basket
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
