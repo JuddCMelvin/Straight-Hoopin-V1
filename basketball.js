@@ -11,15 +11,28 @@
 //     }
 // } )
 
+//Set the Initial Position for the Basket
 const basket = document.getElementById('basket');
 const screenWidth = 600; 
+
+const basketY = 20; 
+
 let basketWidth = 50; 
 let basketheight = 80
-let basketX = screenWidth/2 - basketWidth/2; 
-const basketY = 20; 
+let basketX = screenWidth/2 - basketWidth/2 - 5; 
 
 basket.style.left = basketX + 'px';
 basket.style.top = basketY + 'px';
+
+//Set the Initial Position for the Ball
+const ball = document.getElementById('ball'); 
+let ballWidth = 50; 
+let ballheight = 80; 
+let ballX = screenWidth/2 - ballWidth/2; 
+const ballY = 50; 
+
+ball.style.left = ballX + 'px';
+ball.style.top = ballY + 'px';
 
 // function moveBasket(key) {
 //     const step = 10; 
