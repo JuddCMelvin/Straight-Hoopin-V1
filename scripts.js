@@ -14,7 +14,8 @@ const ballRadius = 10;
 const ballSpeed = 5;
 const balls = [];
 
-const score = document.getElementById('score');
+let score = 0; 
+
 //Functions to create images
 
 // Function to draw the basket
@@ -61,12 +62,15 @@ function checkCollisions() {
             // Collision detected
             balls.splice(i, 1); // Remove the ball from the array
             score++; // Increment the score
+            updateScore(); // Update the displayed score
             generateBall(); // Generate a new ball
         }
     }
 }
 // Function to update the score display
 function updateScore() {
+    const scoreElement = document.getElementById('score');
+    scoreElement.innerText = 'Score: ' + score; // Update the innerText with the new score
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
     ctx.fillText('Score: ' + score, 10, 30);
