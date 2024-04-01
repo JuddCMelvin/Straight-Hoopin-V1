@@ -5,10 +5,9 @@ const ctx = canvas.getContext('2d');
 // Define game variables
 const basketWidth = 80;
 const basketHeight = 20;
-let basketX = canvas.width / 2 - basketWidth / 2;
-const basketY = canvas.height - basketHeight - 10;
+let basketX = canvas.width / 2 ;
+const basketY = canvas.height - basketHeight - 50;
 const basketSpeed = 30;
-
 
 const ballRadius = 10;
 const ballSpeed = 5;
@@ -21,7 +20,7 @@ let score = 0;
 // Function to draw the basket
 function drawBasket() {
     ctx.fillStyle = 'brown'; 
-    ctx.fillRect(basketX, canvas.height - basketHeight - 10, basketWidth, basketHeight); // Draw the basket at the bottom of the canvas
+    ctx.fillRect(basketX, basketY, basketWidth, basketHeight); // Draw the basket at the bottom of the canvas
 }
 // Function to move the basket
 function moveBasket(direction) {
