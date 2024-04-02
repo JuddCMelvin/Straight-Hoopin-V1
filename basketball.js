@@ -87,18 +87,18 @@ function repeat() {
         
 }
 
-function moveBasketRight() {
+// function moveBasketRight() {
     // for (let i = 0;  i < screenWidth.length; i++) {
     //     basketPosition.push(i); 
     //     console.log(i)
     // }
-    basketX += 1; 
-    basket.style.left = basketX + 'px';
+    // basketX += 1; 
+    // basket.style.left = basketX + 'px';
 
     // if (basketX = 2000) {
     //     moveBasketLeft(); 
     // }
-}
+// }
 function moveBasketLeft() {
     // for (let i = 0;  i < screenWidth.length; i++) {
     //     basketPosition.push(i); 
