@@ -24,6 +24,8 @@ let basketX = screenWidth/2 - basketWidth/2 - 5;
 basket.style.left = basketX + 'px';
 basket.style.top = basketY + 'px';
 
+const basketPosition = []
+
 //Set the Initial Position for the Ball
 const ball = document.getElementById('ball'); 
 let ballWidth = 50; 
@@ -38,10 +40,10 @@ ball.style.top = ballY + 'px';
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowLeft') {
-        moveBasket('left');
+        // moveBasket('left');
         moveBall('left');
     } else if (event.key === 'ArrowRight') {
-        moveBasket('right');
+        // moveBasket('right');
         moveBall('right');
     }
 });
@@ -51,24 +53,29 @@ document.addEventListener('keydown', function(event) {
 // to change the x value for the basket
 
 
-function moveBasket(direction) {
-    // const stepBack = 10; 
+// function moveBasket(direction) {
+//     const stepBack = 10; 
 
-    // if (direction === 'left') {
-    //     basketX -= stepBack;
-    // } else if (direction === 'right') {
-    //     basketX += stepBack;
+//     if (direction === 'left') {
+//         basketX -= stepBack;
+//     } else if (direction === 'right') {
+//         basketX += stepBack;
+//     }
+
+//     basket.style.left = basketX + 'px';
+
+// }
+
+function moveBasketRight() {
+    // for (let i = 0;  i < screenWidth.length; i++) {
+    //     basketPosition.push(i); 
+    //     console.log(i)
     // }
-
-    // basket.style.left = basketX + 'px';
-    for (let i = 0;  i < 10; i++) {
-        // console.log(i)
-        if (i > 0) {
-            basketX += 1; 
-        }
-        basket.style.left = basketX + 'px';
-    }
+    basketX += 50
+    basket.style.left = basketX + 'px';
 }
+
+moveBasketRight()
 
 //Move Ball
 
@@ -80,6 +87,6 @@ function moveBall(direction) {
     } else if (direction === 'right') {
         ballX += dribbleBall;
     }
-
+    
     ball.style.left = ballX + 'px';
 }
