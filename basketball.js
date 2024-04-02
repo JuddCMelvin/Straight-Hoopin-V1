@@ -66,16 +66,29 @@ document.addEventListener('keydown', function(event) {
 
 // }
 
+
+//  Basket moves over one. Now how to repeat 
+function repeat() {
+    setInterval(moveBasketRight, 1000);
+}
+
 function moveBasketRight() {
     // for (let i = 0;  i < screenWidth.length; i++) {
     //     basketPosition.push(i); 
     //     console.log(i)
     // }
-    basketX += 50
+    basketX += 100
     basket.style.left = basketX + 'px';
 }
-
-moveBasketRight()
+function moveBasketLeft() {
+    // for (let i = 0;  i < screenWidth.length; i++) {
+    //     basketPosition.push(i); 
+    //     console.log(i)
+    // }
+    basketX -= 100
+    basket.style.left = basketX + 'px';
+}
+repeat()
 
 //Move Ball
 
