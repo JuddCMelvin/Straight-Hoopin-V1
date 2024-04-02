@@ -24,7 +24,7 @@ let basketX = screenWidth/2 - basketWidth/2 - 5;
 basket.style.left = basketX + 'px';
 basket.style.top = basketY + 'px';
 
-const basketPosition = []
+const basketXPositions = []
 
 //Set the Initial Position for the Ball
 const ball = document.getElementById('ball'); 
@@ -68,8 +68,23 @@ document.addEventListener('keydown', function(event) {
 
 
 //  Basket moves over one. Now how to repeat 
+
 function repeat() {
-    setInterval(moveBasketRight, 1000);
+    // for (let i = 0;  i < screenWidth.length; i++) {
+    //         basketPosition.push(i); 
+    //     }
+    for (let i = 0; i < 10; i++) {
+        setInterval(moveBasketRight , 400); // Call the function
+    }
+        // if (basketX < screenWidth){
+        //     setInterval(moveBasketRight, 100);
+        // } else if (basketX = screenWidth - basketWidth) {
+        //     clearInterval();
+        // }
+        // if (basketX = screenWidth - basketWidth) {
+        //     setInterval(moveBasketLeft, 50);
+        // }
+        
 }
 
 function moveBasketRight() {
@@ -77,16 +92,20 @@ function moveBasketRight() {
     //     basketPosition.push(i); 
     //     console.log(i)
     // }
-    basketX += 100
+    basketX += 1; 
     basket.style.left = basketX + 'px';
+
+    // if (basketX = 2000) {
+    //     moveBasketLeft(); 
+    // }
 }
 function moveBasketLeft() {
     // for (let i = 0;  i < screenWidth.length; i++) {
     //     basketPosition.push(i); 
     //     console.log(i)
     // }
-    basketX -= 100
-    basket.style.left = basketX + 'px';
+    basketX -= 10; 
+    basket.style.right = basketX + 'px';
 }
 repeat()
 
