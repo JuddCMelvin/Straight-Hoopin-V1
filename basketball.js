@@ -39,8 +39,10 @@ ball.style.top = ballY + 'px';
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowLeft') {
         moveBasket('left');
+        moveBall('left');
     } else if (event.key === 'ArrowRight') {
-        moveBasket('right')
+        moveBasket('right');
+        moveBall('right');
     }
 });
 
@@ -50,13 +52,34 @@ document.addEventListener('keydown', function(event) {
 
 
 function moveBasket(direction) {
-    const stepBack = 10; 
+    // const stepBack = 10; 
+
+    // if (direction === 'left') {
+    //     basketX -= stepBack;
+    // } else if (direction === 'right') {
+    //     basketX += stepBack;
+    // }
+
+    // basket.style.left = basketX + 'px';
+    for (let i = 0;  i < 10; i++) {
+        // console.log(i)
+        if (i > 0) {
+            basketX += 1; 
+        }
+        basket.style.left = basketX + 'px';
+    }
+}
+
+//Move Ball
+
+function moveBall(direction) {
+    const dribbleBall = 10; 
 
     if (direction === 'left') {
-        basketX -= stepBack;
+        ballX -= dribbleBall;
     } else if (direction === 'right') {
-        basketX += stepBack;
+        ballX += dribbleBall;
     }
 
-    basket.style.left = basketX + 'px';
+    ball.style.left = ballX + 'px';
 }
