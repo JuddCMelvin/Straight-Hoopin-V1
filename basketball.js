@@ -38,23 +38,25 @@ ball.style.top = ballY + 'px';
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowLeft') {
-        console.log('Left arrow key pressed');
+        moveBasket('left');
     } else if (event.key === 'ArrowRight') {
-        console.log('right arrow key pressed')
+        moveBasket('right')
     }
 });
 
-// function moveBasket(key) {
-//     const step = 10; 
+//Now I need to create a way for when the arrow key is
+//  pressed to make the div move left. So need to create a function
+// to change the x value for the basket
 
-//     if (key === "ArrowLeft") {
-//         basketX -= ; // Move left
-//     } else if (key === "ArrowRight") {
-//         basketX += step; // Move right
-//     }
 
-//     // Update the position of the basket element
-//     basket.style.left = basketX + 'px';
-// }
+function moveBasket(direction) {
+    const stepBack = 10; 
 
-// moveBasket('ArrowLeft')
+    if (direction === 'left') {
+        basketX -= stepBack;
+    } else if (direction === 'right') {
+        basketX += stepBack;
+    }
+
+    basket.style.left = basketX + 'px';
+}
