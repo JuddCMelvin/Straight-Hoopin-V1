@@ -7,6 +7,7 @@ let basketX = screenWidth/2 - basketWidth/2;
 let basketY = 80; 
 let collisionCounter = 0;
 let ball;
+let time = 5; 
 
 function moveBasket() {
     basketX += direction;
@@ -160,4 +161,32 @@ function updateCounter() {
     // Update the innerHTML of the counter display element
     scoreBoard.innerHTML = `Collision Counter: ${collisionCounter}`;
 }
+
+//____________________________ShotClock_____________________________
+
+let shotClock = document.getElementById('timer')
+
+function timer(){
+    let sec = 10;
+    const timer = setInterval(function(){
+        document.getElementById('timer').innerHTML= sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timer);
+            //gameOver()
+        }
+    }, 1000);
+}
+
+timer()
+
+//_____________________________Game Over Scree_______________________
+
+
+    // if(time = 0) {
+    //     timer.innerHTML = 0;
+    // }
+
+
+//will need this when start button clicked
 
