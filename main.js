@@ -40,7 +40,8 @@ document.addEventListener('keydown', function(event) {
         // moveHand('right');
         moveHand('right')
     } else if (event.key === ' ') {
-        setInterval(moveBall, 10);
+        // setInterval(moveBall, 10);
+        createBall()
     }
 });
 
@@ -67,11 +68,12 @@ function createBall() {
     ball.style.postion = 'absolute'; 
     ball.style.height = 50 + "px";
     ball.style.width = 50 + "px";
-    ball.style.backgroudColor = 'orange';
+    ball.style.backgroundColor = 'orange';
     ball.style.left = ballX + "px"; 
     ball.style.top = ballY + "px";
 
-    document.body.appendChild(ball); 
+    const gameScreen = document.getElementById('gameScreen'); // Get the ball container
+    gameScreen.appendChild(ball);
 }
 
 //Start of Functions to shoot
