@@ -78,8 +78,8 @@ function createBall() {
     ball.style.height = '20px';
     ball.style.backgroundColor = 'red';
     ball.style.position = 'absolute';
-    ball.style.top = '100px'; // Adjust the position as needed
-    ball.style.left = '100px'; // Adjust the position as needed
+    ball.style.top = handY + 'px'; // Adjust the position as needed
+    ball.style.left = handX + 'px'; // Adjust the position as needed
 
     // Append the ball to the body or any other container element
     gameScreen1.appendChild(ball);
