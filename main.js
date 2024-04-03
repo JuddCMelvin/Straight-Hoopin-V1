@@ -1,8 +1,10 @@
 const basket = document.getElementById('basket');
 let screenWidth = 600;
 let basketWidth = 50;  
+let basketHeight = 80; 
 let direction = 2; // 1 for moving right, -1 for moving left
 let basketX = screenWidth/2 - basketWidth/2;
+let basketY = 80; 
 
 function moveBasket() {
     basketX += direction;
@@ -78,11 +80,10 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-
 // Function to create the ball
 
 // Function to create the ball
-function createBall(handX, handY) {
+function createBall(handX, handY, basketX, basketWidth) {
     // Create a new div element for the ball
     const gameScreen1 = document.getElementById('gameScreen1');
     const ball = document.createElement('div');
@@ -96,27 +97,51 @@ function createBall(handX, handY) {
     ball.style.left = handX + 'px'; // Set the initial position using handX
     ball.style.top = handY + 'px'; // Set the initial position using handY
 
-
-    // setTimeout(removeBall, 3000)
-
-    // function removeBall() {
-    //     ball.remove
-    // }
     // Function to update the position of the ball
     function updatePosition() {
         // Update the position of the ball
-         // Example: Increase handX by 1 (adjust as needed)
-        if (handY > 0) {
-            handY += -5;
-            ball.style.left = handX + 'px';
-            ball.style.top = handY + 'px';
-        } else if (handY === 0) {
-            ball.remove(); 
+        if (handY >= 0) {
+            handY -= 2; // Move the ball upwards by reducing the Y coordinate
+            ball.style.top = handY + 'px'; // Update the top position of the ball
+        } 
+        if (handY <= 0){
+            ball.remove()
         }
+
+        if (handY >= 80 && basketX + basketWidth <= handX >= basketX && handX) {
+            ball.remove();
+        } 
+
+        // if (handY <=){
+        //     ball.remove()
+        // }
+
+        //     (handY <= 0) {
+        //     ball.remove(); // Remove the ball if it's at or above the top of the game screen
+        // } else if (handY >= 80 && handX === basketX + basketWidth) {
+        //     ball.remove(); 
+        // }
+    }
+ 
+    function collision() {
+        if (handY >= 80) {
+            ball.remove()
+        }
+    }
+        // if (handY >=  80 && handX === basketX + basketWidth){
+        //     ball.remove()
+        // }
+
+        // if (handY = basketHeight ) {
+        //     handY += -5;
+        //     ball.style.left = handX + 'px';
+        //     ball.style.top = handY + 'px';
+        // } else if (handY === 0) {
+        //     ball.remove(); 
+        // }
         // handY += -1; // Example: Increase handY by 1 (adjust as needed)
         // ball.style.left = handX + 'px';
         // ball.style.top = handY + 'px';
-    }
 
     // Call the updatePosition function every 10 milliseconds
     const intervalId = setInterval(updatePosition, 10); 
@@ -127,7 +152,6 @@ function createBall(handX, handY) {
     // Optionally, return the intervalId if you need to stop the interval later
     return intervalId;
 
-    ball.remove; 
 }
 
 //Made a counter test to make the ball move
