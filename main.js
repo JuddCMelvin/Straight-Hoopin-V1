@@ -66,13 +66,15 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-let ball;
 // Function to create the ball
 // Add event listener to detect spacebar key press
+let shootingAllowed = true;
+// Add event listener to detect spacebar key press
 document.addEventListener('keydown', function(event) {
-    if (event.key === ' ') { // Check if spacebar is pressed
+    if (event.key === ' ' && shootingAllowed) { // Check if spacebar is pressed and shooting is allowed
         createBall(handX, handY); // Call the function to create the ball and pass handX and handY
-        console.log('shoot')
+        shootingAllowed = false; // Set shootingAllowed to false to prevent shooting for 3 seconds
+        setTimeout(() => { shootingAllowed = true; }, 1000); // Allow shooting again after 3 seconds
     }
 });
 
@@ -121,10 +123,10 @@ function createBall(handX, handY) {
 //     console.log('test')
 // }
 //Need Ball
-async function shoot() {
-    handY += 1
-    ball.style.top = handY + 'px';
-}
+// async function shoot() {
+//     handY += 1
+//     ball.style.top = handY + 'px';
+// }
 
 //Need ball to appear when space bar clicked
 
