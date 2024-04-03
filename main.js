@@ -40,7 +40,7 @@ document.addEventListener('keydown', function(event) {
         // moveHand('right');
         moveHand('right')
     } else if (event.key === ' ') {
-
+        setInterval(moveBall, 10);
     }
 });
 
@@ -57,13 +57,37 @@ function moveHand(direction) {
     }
 }
 
+//CreateBall Function 
+
+function createBall() {
+    const ball = document.createElement('div')
+
+    ball.id = 'ball'; 
+    ball.style.borderRadius = '50%'; 
+    ball.style.postion = 'absolute'; 
+    ball.style.height = 50 + "px";
+    ball.style.width = 50 + "px";
+    ball.style.backgroudColor = 'orange';
+    ball.style.left = ballX + "px"; 
+    ball.style.top = ballY + "px";
+
+    document.body.appendChild(ball); 
+}
+
 //Start of Functions to shoot
-const ball = document.getElementById('ball'); 
 
 let ballX = handX + 5; 
 let ballY = handY - handheight + 30; 
+let ballSpeed = 5; 
 
 //Set Starting Position of ball
-ball.style.left = ballX + "px"; 
-ball.style.top = ballY + "px";
+// ball.style.left = ballX + "px"; 
+// ball.style.top = ballY + "px";
+
+function moveBall(){
+    ballY -= ballSpeed
+    ball.style.top = ballY + "px";
+
+
+}
 
