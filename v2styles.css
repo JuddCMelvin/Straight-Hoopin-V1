@@ -60,9 +60,9 @@ main {
     height: 50px; 
     border-radius: 50%; 
     position: absolute; 
-    background-color: orange; */
-    /* display: none;  */
-/* } */
+    background-color: orange; 
+    display: none; 
+} */
 #hand {
     height: 80px; 
     width: 60px; 
