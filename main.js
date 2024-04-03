@@ -39,7 +39,8 @@ document.addEventListener('keydown', function(event) {
     } else if (event.key === 'ArrowRight') {
         // moveHand('right');
         moveHand('right')
-        console.log('')
+    } else if (event.key === ' ') {
+
     }
 });
 
@@ -55,3 +56,14 @@ function moveHand(direction) {
         hand.style.left = handX + 'px';
     }
 }
+
+//Start of Functions to shoot
+const ball = document.getElementById('ball'); 
+
+let ballX = handX + 5; 
+let ballY = handY - handheight + 30; 
+
+//Set Starting Position of ball
+ball.style.left = ballX + "px"; 
+ball.style.top = ballY + "px";
+
