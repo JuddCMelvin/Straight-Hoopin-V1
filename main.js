@@ -5,6 +5,8 @@ let basketHeight = 80;
 let direction = 2; // 1 for moving right, -1 for moving left
 let basketX = screenWidth/2 - basketWidth/2;
 let basketY = 80; 
+let collisionCounter = 0;
+let ball;
 
 function moveBasket() {
     basketX += direction;
@@ -111,6 +113,7 @@ function createBall(handX, handY) {
         // Check for collision and log the result
         if (checkCollision(ball, basket)) {
             console.log('Collision detected!');
+            updateCounter()
             ball.remove();
             clearInterval(intervalId);
         }
@@ -125,7 +128,6 @@ function createBall(handX, handY) {
     // Optionally, return the intervalId if you need to stop the interval later
     return intervalId;
 }
-
 
 function checkCollision(ball, basket) {
     const rect1 = ball.getBoundingClientRect();
@@ -148,28 +150,14 @@ function checkCollision(ball, basket) {
 
 // Get references to the div elements
 
-// Check for collision and log the result
-if (checkCollision(ball, basket)) {
-    console.log('Collision detected!');
-} else {
-    console.log('No collision.');
+//____________________________ScoreBoard___________________________
+
+// Function to update the collision counter and display it
+function updateCounter() {
+    collisionCounter += 2;
+    // Get the counter display element
+    const scoreBoard = document.getElementById('scoreBoard');
+    // Update the innerHTML of the counter display element
+    scoreBoard.innerHTML = `Collision Counter: ${collisionCounter}`;
 }
-//Made a counter test to make the ball move
-
-// setInterval(shoot, 10); 
-
-// function test() {
-//     console.log('test')
-// }
-//Need Ball
-// async function shoot() {
-//     handY += 1
-//     ball.style.top = handY + 'px';
-// }
-
-//Need ball to appear when space bar clicked
-
-//need ball to move up 
-
-//shoot
 
