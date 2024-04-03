@@ -61,11 +61,12 @@ function moveHand(direction) {
 // Add event listener to detect spacebar key press
 document.addEventListener('keydown', function(event) {
     if (event.key === ' ') { // Check if spacebar is pressed
-        createBall(); // Call the function to create the ball
+        // createBall(); // Call the function to create the ball
         console.log('shoot')
     }
 });
 
+let ball;
 // Function to create the ball
 function createBall() {
     // Create a new div element for the ball
@@ -78,16 +79,29 @@ function createBall() {
     ball.style.height = '20px';
     ball.style.backgroundColor = 'red';
     ball.style.position = 'absolute';
-    ball.style.top = handY + 'px'; // Adjust the position as needed
+    // ball.style.top = handY + 'px'; // I need this to consitently reset 
     ball.style.left = handX + 'px'; // Adjust the position as needed
+
+    setInterval(shoot, 10); 
 
     // Append the ball to the body or any other container element
     gameScreen1.appendChild(ball);
+
+    requestAnimationFrame(createBall);
 }
 
+//Made a counter test to make the ball move
 
+// setInterval(shoot, 10); 
+
+// function test() {
+//     console.log('test')
+// }
 //Need Ball
-
+async function shoot() {
+    handY += 1
+    ball.style.top = handY + 'px';
+}
 
 //Need ball to appear when space bar clicked
 
