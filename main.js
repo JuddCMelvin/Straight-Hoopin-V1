@@ -17,7 +17,7 @@ function moveBasket() {
 
 moveBasket();
 
-//Start of Functions for the Hand
+// Start of Functions for the Hand
 const hand = document.getElementById('hand'); 
 let handWidth = 50; 
 let handheight = 80; 
@@ -33,20 +33,16 @@ hand.style.top = handY + "px";
 //Add EventListener to get arrow clicks
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowLeft') {
-        // moveHand('left');
-        moveHand('left')
-        console.log('hello')
+        moveHand('left');
+        console.log('Moving hand left');
     } else if (event.key === 'ArrowRight') {
-        // moveHand('right');
-        moveHand('right')
-    } else if (event.key === ' ') {
-        // setInterval(moveBall, 10);
-        createBall()
-        // setInterval(moveBall, 10);  
-    }
+        moveHand('right');
+        console.log('Moving hand right');
+    } 
 });
 
-//Function moves the hand
+
+// Function moves the hand
 function moveHand(direction) {
     let dribble = 20;
 
@@ -59,44 +55,42 @@ function moveHand(direction) {
     }
 }
 
-//CreateBall Function 
 
-let ballX = handX + 50;
-let ballY = handY - handheight + 30;
-let ballSpeed = 5;
-let ball; // Define ball variable outside of createBall function
+//_________________________Shoot_____________________________
 
+// Add event listener to detect spacebar key press
+document.addEventListener('keydown', function(event) {
+    if (event.key === ' ') { // Check if spacebar is pressed
+        createBall(); // Call the function to create the ball
+        console.log('shoot')
+    }
+});
+
+// Function to create the ball
 function createBall() {
+    // Create a new div element for the ball
+    const ball = document.createElement('div');
 
-    let ball = document.createElement('div');
-
+    // Set styles for the ball
     ball.className = 'ball';
-    ball.style.borderRadius = '50%';
+    ball.style.width = '20px';
+    ball.style.height = '20px';
+    ball.style.backgroundColor = 'red';
     ball.style.position = 'absolute';
-    ball.style.height = '50px';
-    ball.style.width = '50px';
-    ball.style.backgroundColor = 'orange';
-    ball.style.left = ballX + 'px';
-    ball.style.top = ballY + 'px';
+    ball.style.top = '100px'; // Adjust the position as needed
+    ball.style.left = '100px'; // Adjust the position as needed
 
-    const gameScreen = document.getElementById('gameScreen1');
-    gameScreen1.appendChild(ball);
-
-    setInterval(function() {
-        moveBall(ball);
-    }, 10);
+    // Append the ball to the body or any other container element
+    document.body.appendChild(ball);
 }
 
-//Start of Functions to shoot
 
-function moveBall() {
-    ballY -= ballSpeed;
-    ball.style.top = ballY + 'px';
-
-    requestAnimationFrame(moveBall);
-}
-
- // Call createBall function to initialize the ball
+//Need Ball
 
 
+//Need ball to appear when space bar clicked
+
+//need ball to move up 
+
+//shoot
 
