@@ -83,8 +83,8 @@ document.addEventListener('keydown', function(event) {
 // Function to create the ball
 
 // Function to create the ball
-function createBall(handX, handY, basketX, basketWidth) {
-    // Create a new div element for the ball
+
+function createBall(handX, handY) {
     const gameScreen1 = document.getElementById('gameScreen1');
     const ball = document.createElement('div');
 
@@ -108,40 +108,13 @@ function createBall(handX, handY, basketX, basketWidth) {
             ball.remove()
         }
 
-        if (handY >= 80 && basketX + basketWidth <= handX >= basketX && handX) {
+        // Check for collision and log the result
+        if (checkCollision(ball, basket)) {
+            console.log('Collision detected!');
             ball.remove();
-        } 
-
-        // if (handY <=){
-        //     ball.remove()
-        // }
-
-        //     (handY <= 0) {
-        //     ball.remove(); // Remove the ball if it's at or above the top of the game screen
-        // } else if (handY >= 80 && handX === basketX + basketWidth) {
-        //     ball.remove(); 
-        // }
-    }
- 
-    function collision() {
-        if (handY >= 80) {
-            ball.remove()
+            clearInterval(intervalId);
         }
     }
-        // if (handY >=  80 && handX === basketX + basketWidth){
-        //     ball.remove()
-        // }
-
-        // if (handY = basketHeight ) {
-        //     handY += -5;
-        //     ball.style.left = handX + 'px';
-        //     ball.style.top = handY + 'px';
-        // } else if (handY === 0) {
-        //     ball.remove(); 
-        // }
-        // handY += -1; // Example: Increase handY by 1 (adjust as needed)
-        // ball.style.left = handX + 'px';
-        // ball.style.top = handY + 'px';
 
     // Call the updatePosition function every 10 milliseconds
     const intervalId = setInterval(updatePosition, 10); 
@@ -151,9 +124,36 @@ function createBall(handX, handY, basketX, basketWidth) {
 
     // Optionally, return the intervalId if you need to stop the interval later
     return intervalId;
-
 }
 
+
+function checkCollision(ball, basket) {
+    const rect1 = ball.getBoundingClientRect();
+    const x1 = rect1.left;
+    const y1 = rect1.top;
+    const width1 = rect1.width;
+    const height1 = rect1.height;
+
+    const rect2 = basket.getBoundingClientRect();
+    const x2 = rect2.left;
+    const y2 = rect2.top;
+    const width2 = rect2.width;
+    const height2 = rect2.height;
+
+    const horizontalOverlap = x1 < x2 + width2 && x1 + width1 > x2;
+    const verticalOverlap = y1 < y2 + height2 && y1 + height1 > y2;
+
+    return horizontalOverlap && verticalOverlap;
+}
+
+// Get references to the div elements
+
+// Check for collision and log the result
+if (checkCollision(ball, basket)) {
+    console.log('Collision detected!');
+} else {
+    console.log('No collision.');
+}
 //Made a counter test to make the ball move
 
 // setInterval(shoot, 10); 
