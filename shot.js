@@ -4,7 +4,7 @@ let handheight = 80;
 let screenWidth = 600; 
 let screenHeight = 600; 
 
-let handX = screenWidth/2 - handWidth/2; 
+let handX = screenWidth/2 - handWidth/2 - 15; 
 let handY = screenHeight - handheight - 10; 
 
 //Set Starting Position
@@ -24,16 +24,21 @@ document.addEventListener('keydown', function(event) {
 });
 
 function moveHand(direction) {
-    let dribble = 10; 
+    let dribble = 20;
 
-    if (direction === 'left') {
+    if (direction === 'left' && handX - dribble >= 0) {
         handX -= dribble;
         hand.style.left = handX + 'px';
-    } else if (direction === 'right') {
+    } else if (direction === 'right' && handX + handWidth + dribble <= screenWidth) {
         handX += dribble;
         hand.style.left = handX + 'px';
     }
+
+    requestAnimationFrame(moveHand);
 }
+
+
+
 
 // function moveBasket() {
 //     handX += direction;
