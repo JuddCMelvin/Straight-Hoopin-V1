@@ -68,7 +68,19 @@ document.addEventListener('keydown', function(event) {
 
 let ball;
 // Function to create the ball
-function createBall() {
+// Add event listener to detect spacebar key press
+document.addEventListener('keydown', function(event) {
+    if (event.key === ' ') { // Check if spacebar is pressed
+        createBall(handX, handY); // Call the function to create the ball and pass handX and handY
+        console.log('shoot')
+    }
+});
+
+
+// Function to create the ball
+
+// Function to create the ball
+function createBall(handX, handY) {
     // Create a new div element for the ball
     const gameScreen1 = document.getElementById('gameScreen1');
     const ball = document.createElement('div');
@@ -79,15 +91,26 @@ function createBall() {
     ball.style.height = '20px';
     ball.style.backgroundColor = 'red';
     ball.style.position = 'absolute';
-    // ball.style.top = handY + 'px'; // I need this to consitently reset 
-    ball.style.left = handX + 'px'; // Adjust the position as needed
+    ball.style.left = handX + 'px'; // Set the initial position using handX
+    ball.style.top = handY + 'px'; // Set the initial position using handY
 
-    setInterval(shoot, 10); 
+    // Function to update the position of the ball
+    function updatePosition() {
+        // Update the position of the ball
+         // Example: Increase handX by 1 (adjust as needed)
+        handY += -1; // Example: Increase handY by 1 (adjust as needed)
+        ball.style.left = handX + 'px';
+        ball.style.top = handY + 'px';
+    }
+
+    // Call the updatePosition function every 10 milliseconds
+    const intervalId = setInterval(updatePosition, 10); 
 
     // Append the ball to the body or any other container element
     gameScreen1.appendChild(ball);
 
-    requestAnimationFrame(createBall);
+    // Optionally, return the intervalId if you need to stop the interval later
+    return intervalId;
 }
 
 //Made a counter test to make the ball move
