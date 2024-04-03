@@ -67,7 +67,8 @@ let ballSpeed = 5;
 let ball; // Define ball variable outside of createBall function
 
 function createBall() {
-    ball = document.createElement('div');
+
+    let ball = document.createElement('div');
 
     ball.className = 'ball';
     ball.style.borderRadius = '50%';
@@ -78,10 +79,12 @@ function createBall() {
     ball.style.left = ballX + 'px';
     ball.style.top = ballY + 'px';
 
-    const gameScreen = document.getElementById('gameScreen');
-    gameScreen.appendChild(ball);
+    const gameScreen = document.getElementById('gameScreen1');
+    gameScreen1.appendChild(ball);
 
-    moveBall()
+    setInterval(function() {
+        moveBall(ball);
+    }, 10);
 }
 
 //Start of Functions to shoot
@@ -92,10 +95,6 @@ function moveBall() {
 
     requestAnimationFrame(moveBall);
 }
-
-//Set Starting Position of ball
-ball.style.left = ballX + 'px';
-ball.style.top = ballY + 'px';
 
  // Call createBall function to initialize the ball
 
