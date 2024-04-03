@@ -44,7 +44,7 @@ document.addEventListener('keydown', function(event) {
 
 // Function moves the hand
 function moveHand(direction) {
-    let dribble = 20;
+    let dribble = 30;
 
     if (direction === 'left' && handX - dribble >= 0) {
         handX -= dribble;
@@ -71,10 +71,10 @@ document.addEventListener('keydown', function(event) {
 let shootingAllowed = true;
 // Add event listener to detect spacebar key press
 document.addEventListener('keydown', function(event) {
-    if (event.key === ' ' && shootingAllowed) { // Check if spacebar is pressed and shooting is allowed
-        createBall(handX, handY); // Call the function to create the ball and pass handX and handY
-        shootingAllowed = false; // Set shootingAllowed to false to prevent shooting for 3 seconds
-        setTimeout(() => { shootingAllowed = true; }, 1000); // Allow shooting again after 3 seconds
+    if (event.key === ' ' && shootingAllowed) { 
+        createBall(handX, handY); // 
+        shootingAllowed = false; // 
+        setTimeout(() => { shootingAllowed = true; }, 1000);
     }
 });
 
@@ -96,13 +96,26 @@ function createBall(handX, handY) {
     ball.style.left = handX + 'px'; // Set the initial position using handX
     ball.style.top = handY + 'px'; // Set the initial position using handY
 
+
+    // setTimeout(removeBall, 3000)
+
+    // function removeBall() {
+    //     ball.remove
+    // }
     // Function to update the position of the ball
     function updatePosition() {
         // Update the position of the ball
          // Example: Increase handX by 1 (adjust as needed)
-        handY += -1; // Example: Increase handY by 1 (adjust as needed)
-        ball.style.left = handX + 'px';
-        ball.style.top = handY + 'px';
+        if (handY > 0) {
+            handY += -5;
+            ball.style.left = handX + 'px';
+            ball.style.top = handY + 'px';
+        } else if (handY === 0) {
+            ball.remove(); 
+        }
+        // handY += -1; // Example: Increase handY by 1 (adjust as needed)
+        // ball.style.left = handX + 'px';
+        // ball.style.top = handY + 'px';
     }
 
     // Call the updatePosition function every 10 milliseconds
@@ -113,6 +126,8 @@ function createBall(handX, handY) {
 
     // Optionally, return the intervalId if you need to stop the interval later
     return intervalId;
+
+    ball.remove; 
 }
 
 //Made a counter test to make the ball move
