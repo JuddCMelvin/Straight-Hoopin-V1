@@ -69,6 +69,7 @@ document.addEventListener('keydown', function(event) {
 // Function to create the ball
 function createBall() {
     // Create a new div element for the ball
+    const gameScreen1 = document.getElementById('gameScreen1');
     const ball = document.createElement('div');
 
     // Set styles for the ball
@@ -81,7 +82,7 @@ function createBall() {
     ball.style.left = '100px'; // Adjust the position as needed
 
     // Append the ball to the body or any other container element
-    document.body.appendChild(ball);
+    gameScreen1.appendChild(ball);
 }
 
 
