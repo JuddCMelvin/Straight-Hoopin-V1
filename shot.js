@@ -11,6 +11,7 @@ let handY = screenHeight - handheight - 10;
 hand.style.left = handX + "px"; 
 hand.style.top = handY + "px";
 
+//Add EventListener to get arrow clicks
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowLeft') {
         // moveHand('left');
@@ -23,6 +24,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+//Function moves the hand
 function moveHand(direction) {
     let dribble = 20;
 
@@ -33,8 +35,6 @@ function moveHand(direction) {
         handX += dribble;
         hand.style.left = handX + 'px';
     }
-
-    requestAnimationFrame(moveHand);
 }
 
 
