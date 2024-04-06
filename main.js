@@ -1,4 +1,5 @@
 const basket = document.getElementById('basket');
+const backBoard = document.getElementById('backboard')
 let screenWidth = 600;
 let basketWidth = 50;  
 let basketHeight = 80; 
@@ -8,6 +9,21 @@ let basketY = 80;
 let collisionCounter = 5;
 let ball;
 let time = 60; 
+let backBoardX = screenWidth/2 - basketWidth/2 + 30;
+let backBoardY = 80; 
+let backBoardWidth = 100; 
+
+
+function backBoardMove() {
+    backBoardX += direction; 
+    backboard.style.left = backBoardX + 'px'; 
+
+    if (backBoardX + backBoardWidth + 10 >= screenWidth || backBoardX <= 0) {
+        direction *= -1;
+    }
+
+    requestAnimationFrame(backBoardMove);
+}
 
 function moveBasket() {
     basketX += direction;
@@ -34,15 +50,15 @@ hand.style.left = handX + "px";
 hand.style.top = handY + "px";
 
 //Add EventListener to get arrow clicks
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowLeft') {
-        moveHand('left');
-        console.log('Moving hand left');
-    } else if (event.key === 'ArrowRight') {
-        moveHand('right');
-        console.log('Moving hand right');
-    } 
-});
+// document.addEventListener('keydown', function(event) {
+//     if (event.key === 'ArrowLeft') {
+//         moveHand('left');
+//         console.log('Moving hand left');
+//     } else if (event.key === 'ArrowRight') {
+//         moveHand('right');
+//         console.log('Moving hand right');
+//     } 
+// });
 
 
 // Function moves the hand
@@ -62,24 +78,18 @@ function moveHand(direction) {
 //_________________________Shoot_____________________________
 
 // Add event listener to detect spacebar key press
-document.addEventListener('keydown', function(event) {
-    if (event.key === ' ') { // Check if spacebar is pressed
-        // createBall(); // Call the function to create the ball
-        console.log('shoot')
-    }
-});
 
 // Function to create the ball
 // Add event listener to detect spacebar key press
 let shootingAllowed = true;
 // Add event listener to detect spacebar key press
-document.addEventListener('keydown', function(event) {
-    if (event.key === ' ' && shootingAllowed) { 
-        createBall(handX, handY); // 
-        shootingAllowed = false; // 
-        setTimeout(() => { shootingAllowed = true; }, 1000);
-    }
-});
+// document.addEventListener('keydown', function(event) {
+//     if (event.key === ' ' && shootingAllowed) { 
+//         createBall(handX, handY); // 
+//         shootingAllowed = false; // 
+//         setTimeout(() => { shootingAllowed = true; }, 675);
+//     }
+// });
 
 function createBall(handX, handY) {
     const gameScreen1 = document.getElementById('gameScreen1');
@@ -168,11 +178,14 @@ function timer(){
         sec--;
         if (sec <= -1 && collisionCounter <= 5) {
             clearInterval(timer);
-            document.getElementById('result').innerHTML = 'You Lose. Come on and sit on Bench. Maybe next time'
+            document.getElementById('result').innerHTML = 'You Lost us the Game'
             //gameOver()
-        } else if( sec <= -1 && collisionCounter >= 5){
+        } else if( sec <= -1 && collisionCounter >= 10){
             clearInterval(timer);
-            document.getElementById('result').innerHTML = 'Your getting there. We might join the starters soon.'
+            document.getElementById('result').innerHTML = 'Your alright I guess'
+        } else if( sec <= 1 && collisionCounter >= 15) {
+            clearInterval(timer);
+            document.getElementById('result').innerHTML = 'You were Hoopin'
         }
     }, 1000);
 }
@@ -194,9 +207,27 @@ function startButtonClickHandler() {
     // Reset the hand position
     handX = screenWidth / 2 - handWidth / 2 - 15; 
     hand.style.left = handX + 'px';
+    document.addEventListener('keydown', function(event) {
+        if (event.key === ' ' && shootingAllowed) { 
+            createBall(handX, handY); // 
+            shootingAllowed = false; // 
+            setTimeout(() => { shootingAllowed = true; }, 675);
+        }
+    });
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            moveHand('left');
+            console.log('Moving hand left');
+        } else if (event.key === 'ArrowRight') {
+            moveHand('right');
+            console.log('Moving hand right');
+        } 
+    });
     // Code to execute when the button is clicked
+
     timer();
     moveBasket(); 
+    backBoardMove() 
     console.log('Button clicked!');
 }
 

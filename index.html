@@ -9,14 +9,18 @@
     <main>
         <section id="gameScreen">
             <h1 id="header">Straight Hoopin</h1>
-            <button id="startGameButton">Start Game</button>
-            <button id="reset">reset</button>
-            <!-- <button onclick="bringToTop('gameScreen1')">Bring gameScreen 1 to Top</button> -->
-            <!-- <button onclick="bringToTop('gameScreen2')">Bring gameScreen 2 to Top</button>
-            <button onclick="bringToTop('gameScreen3')">Bring gameScreen 3 to Top</button> -->
-            <div id="scoreBoard">Score:<span>0</span></div>
-            <div id="result"></div>
-            <div id="shotClock">Shot Clock: <span id="timer">10</span></div>
+            <nav class="controls">
+                <div>
+                    <button id="startGameButton">Start Game</button>
+                    <button id="reset">reset</button>
+                </div>
+                <div>
+                    <div id="scoreBoard">Score:<span>0</span></div>
+                    <div id="result"></div>
+                    <div id="shotClock">Shot Clock: <span id="timer">10</span></div>
+
+                </div>
+            </nav>
             <div class="container">
                 <div class="gameScreen gameScreen1" id="gameScreen1">
                         <div id="basket">
@@ -26,35 +30,15 @@
                     <div class="ball">
                     </div>
                     <div id="hand">
-                        <img src="Assets/player.png" style="width: 120px; height: 150px" alt="Hand Image">
+                        <img src="Assets/player.png" style="width: 120px; height: 150px; filter: drop-shadow(10px 10px 10px #000001);" alt="Hand Image">
                     </div>
                 </div>
                 <!-- <div class="gameScreen gameScreen2" id="gameScreen2">Div 2</div>
                 <div class="gameScreen gameScreen3" id="gameScreen3">Div 3</div> -->
             </div>
-            <!-- <div id="gameBounds">
-                <section id="gamePlayScreen">
-                    
-                </section>
-                <section id="gamePlayScreen">
-                    
-                </section>
-                <section id="gamePlayScreen">
-                    
-                </section>
-                <div id="basket"></div>
-                <div id="ball"></div>
-                <div id="gameBackGround">
-                    <div id="basket"></div>
-                </div>
-            </div> -->
-            <!-- <canvas id="gameCanvas" width="600" height="600"></canvas> -->
-            <!-- <script src="scripts.js"></script> -->
-            <!-- <script src="basketball.js"></script> -->
             <script src="main.js"></script>
             <!-- <script src="shot.js"></script> -->
         </section>
-        
     </main>
 </body>
 </html>
