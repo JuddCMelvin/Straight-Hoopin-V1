@@ -10,9 +10,9 @@ Scoring: Each successful shot increases your score. The collision counter displa
 
 Game Over: The game ends when the shot clock reaches zero. Different messages will display on the result section based on your performance:
 
-If your collision counter is less than or equal to 5, you'll get the message "You Lost us the Game."
-If your collision counter is between 10 and 14, you'll receive the message "You're alright I guess."
-If your collision counter is 15 or more, you'll be praised with the message "You were Hoopin'!"
+If your score is less than or equal to 5, you'll get the message "You Lost us the Game."
+If your score is between 10 and 14, you'll receive the message "You're alright I guess."
+If your score is 15 or more, you'll be praised with the message "You were Hoopin'!"
 Reset: If you want to play again, simply click the "Reset" button to reload the game.
 
 Controls
