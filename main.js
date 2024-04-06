@@ -196,8 +196,8 @@ const startButton = document.getElementById('startGameButton');
 function startButtonClickHandler() {
     // Remove the event listener to prevent multiple executions
     startButton.removeEventListener('click', startButtonClickHandler);
-    // Reset the timer to 10 seconds
-    shotClock.innerHTML = 10;
+    // Reset the timer to 30 seconds
+    shotClock.innerHTML = 30;
     // Reset the collision counter
     collisionCounter = 0;
     scoreBoard.innerHTML = collisionCounter;
