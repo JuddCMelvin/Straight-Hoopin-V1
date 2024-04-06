@@ -42,7 +42,7 @@ button {
     border-radius: 50px;
 }
 
-.gameScreen {
+.game-screen {
     width: 600px;
     height: 600px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -58,7 +58,7 @@ button {
     box-shadow: inset 0 0 30px rgba(0, 0, 30, 40);
 }
 
-.gameScreen1 { 
+.game-screen1 { 
     top: 0; 
     left: 0; 
     width: 100%; 
