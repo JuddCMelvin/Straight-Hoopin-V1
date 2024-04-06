@@ -5,7 +5,7 @@ let basketHeight = 80;
 let direction = 2; // 1 for moving right, -1 for moving left
 let basketX = screenWidth/2 - basketWidth/2;
 let basketY = 80; 
-let collisionCounter = 0;
+let collisionCounter = 5;
 let ball;
 let time = 5; 
 
@@ -83,10 +83,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Function to create the ball
-
-// Function to create the ball
-
 function createBall(handX, handY) {
     const gameScreen1 = document.getElementById('gameScreen1');
     const ball = document.createElement('div');
@@ -97,8 +93,8 @@ function createBall(handX, handY) {
     ball.style.height = '20px';
     ball.style.backgroundColor = 'red';
     ball.style.position = 'absolute';
-    ball.style.left = handX + 'px'; // Set the initial position using handX
-    ball.style.top = handY + 'px'; // Set the initial position using handY
+    ball.style.left = handX + 'px'; // Set the initial position using x axis
+    ball.style.top = handY + 'px'; // Set the initial position using Y axis
 
     // Function to update the position of the ball
     function updatePosition() {
@@ -159,34 +155,58 @@ function updateCounter() {
     // Get the counter display element
     const scoreBoard = document.getElementById('scoreBoard');
     // Update the innerHTML of the counter display element
-    scoreBoard.innerHTML = `Collision Counter: ${collisionCounter}`;
+    scoreBoard.innerHTML = `${collisionCounter}`;
 }
 
 //____________________________ShotClock_____________________________
 
 let shotClock = document.getElementById('timer')
+let outcome = document.getElementById('result')
 
 function timer(){
     let sec = 10;
     const timer = setInterval(function(){
-        document.getElementById('timer').innerHTML= sec;
+        document.getElementById('timer').innerHTML = sec;
         sec--;
-        if (sec < 0) {
+        if (sec <= -1 && collisionCounter <= 5) {
             clearInterval(timer);
+            document.getElementById('result').innerHTML = 'You Lose. Come on and sit on Bench. Maybe next time'
             //gameOver()
+        } else if( sec <= -1 && collisionCounter >= 5){
+            clearInterval(timer);
+            document.getElementById('result').innerHTML = 'Your getting there. We might join the starters soon.'
+        
         }
     }, 1000);
 }
 
 timer()
 
-//_____________________________Game Over Scree_______________________
+//_____________________________Game Over Screen_______________________
 
+// let outcome = document.getElementById('result')
 
+// function result(){
+//     if()
+// }
+
+// if ()
+// function gameOver() {
+//     const gameScreen1 = document.getElementById('gameScreen1');
+//     const gameOverScreen = document.createElement('div');
+
+//     // Set styles for the ball
+//     gameOverScreen.className = 'ball';
+//     gameOverScreen.style.width = '20px';
+//     gameOverScreen.style.height = '20px';
+//     gameOverScreen.style.backgroundColor = 'red';
+//     gameOverScreen.style.position = 'absolute';
+//     gameOverScreen.style.left = handX + 'px'; // Set the initial position using handX
+//     gameOverScreen.style.top = handY + 'px'; // Set the initial position using handY
     // if(time = 0) {
     //     timer.innerHTML = 0;
     // }
 
-
+// }
 //will need this when start button clicked
 
