@@ -27,5 +27,11 @@ HTML
 CSS
 JavaScript
 
+Bug/Unfinished
+
+I wanted to implement a way to stop the player from continuing to shoot after the clock reaches zero but wasn't able to. 
+
+Additionally there a few stretch goals I wanted to complete but didn't have time such as, adding sound and more game functionalaity i.e. bonus points, three-ball, etc. 
+
 Author
 Judd Melvin
