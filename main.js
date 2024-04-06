@@ -3,11 +3,11 @@ let screenWidth = 600;
 let basketWidth = 50;  
 let basketHeight = 80; 
 let direction = 2; // 1 for moving right, -1 for moving left
-let basketX = screenWidth/2 - basketWidth/2;
+let basketX = screenWidth/2 - basketWidth/2 + 30;
 let basketY = 80; 
 let collisionCounter = 5;
 let ball;
-let time = 5; 
+let time = 60; 
 
 function moveBasket() {
     basketX += direction;
@@ -27,7 +27,7 @@ let handheight = 80;
 let screenHeight = 600; 
 
 let handX = screenWidth/2 - handWidth/2 - 15; 
-let handY = screenHeight - handheight - 10; 
+let handY = screenHeight - handheight - 70; 
 
 //Set Starting Position
 hand.style.left = handX + "px"; 
@@ -87,9 +87,10 @@ function createBall(handX, handY) {
 
     // Set styles for the ball
     ball.className = 'ball';
-    ball.style.width = '20px';
-    ball.style.height = '20px';
+    ball.style.width = '30px';
+    ball.style.height = '30px';
     ball.style.backgroundColor = 'red';
+    ball.style.borderRadius = '50%'; 
     ball.style.position = 'absolute';
     ball.style.left = handX + 'px'; // Set the initial position using x axis
     ball.style.top = handY + 'px'; // Set the initial position using Y axis
@@ -160,9 +161,8 @@ function updateCounter() {
 
 let shotClock = document.getElementById('timer')
 let outcome = document.getElementById('result')
-
+let sec = 10;
 function timer(){
-    let sec = 5;
     const timer = setInterval(function(){
         document.getElementById('timer').innerHTML = sec;
         sec--;
@@ -173,11 +173,9 @@ function timer(){
         } else if( sec <= -1 && collisionCounter >= 5){
             clearInterval(timer);
             document.getElementById('result').innerHTML = 'Your getting there. We might join the starters soon.'
-        
         }
     }, 1000);
 }
-
 
 const startButton = document.getElementById('startGameButton');
 
@@ -185,47 +183,32 @@ const startButton = document.getElementById('startGameButton');
 function startButtonClickHandler() {
     // Remove the event listener to prevent multiple executions
     startButton.removeEventListener('click', startButtonClickHandler);
-    
+    // Reset the timer to 10 seconds
+    shotClock.innerHTML = 10;
+    // Reset the collision counter
+    collisionCounter = 0;
+    scoreBoard.innerHTML = collisionCounter;
+    // Reset the basket position
+    basketX = screenWidth / 2 - basketWidth / 2;
+    basket.style.left = basketX + 'px';
+    // Reset the hand position
+    handX = screenWidth / 2 - handWidth / 2 - 15; 
+    hand.style.left = handX + 'px';
     // Code to execute when the button is clicked
     timer();
     moveBasket(); 
     console.log('Button clicked!');
-    // Add your logic here
 }
 
 // Add event listener to the start button
 startButton.addEventListener('click', startButtonClickHandler);
-// function startGame() {
-//     const startButton = document.getElementById('startButton');
-//     moveBasket();
-// }
 
+const resetButton = document.getElementById('reset');
 
+function reset() {
+    location.reload();
+}
+
+resetButton.addEventListener('click', reset)
 //_____________________________Game Over Screen_______________________
-
-// let outcome = document.getElementById('result')
-
-// function result(){
-//     if()
-// }
-
-// if ()
-// function gameOver() {
-//     const gameScreen1 = document.getElementById('gameScreen1');
-//     const gameOverScreen = document.createElement('div');
-
-//     // Set styles for the ball
-//     gameOverScreen.className = 'ball';
-//     gameOverScreen.style.width = '20px';
-//     gameOverScreen.style.height = '20px';
-//     gameOverScreen.style.backgroundColor = 'red';
-//     gameOverScreen.style.position = 'absolute';
-//     gameOverScreen.style.left = handX + 'px'; // Set the initial position using handX
-//     gameOverScreen.style.top = handY + 'px'; // Set the initial position using handY
-    // if(time = 0) {
-    //     timer.innerHTML = 0;
-    // }
-
-// }
-//will need this when start button clicked
 

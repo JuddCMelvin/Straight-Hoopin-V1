@@ -6,14 +6,12 @@
     <link rel="stylesheet" href="v2styles.css">
 </head>
 <body>
-    <nav>
-
-    </nav>
     <main>
         <section id="gameScreen">
             <h1 id="header">Straight Hoopin</h1>
             <button id="startGameButton">Start Game</button>
-            <button onclick="bringToTop('gameScreen1')">Bring gameScreen 1 to Top</button>
+            <button id="reset">reset</button>
+            <!-- <button onclick="bringToTop('gameScreen1')">Bring gameScreen 1 to Top</button> -->
             <!-- <button onclick="bringToTop('gameScreen2')">Bring gameScreen 2 to Top</button>
             <button onclick="bringToTop('gameScreen3')">Bring gameScreen 3 to Top</button> -->
             <div id="scoreBoard">Score:<span>0</span></div>
@@ -21,10 +19,15 @@
             <div id="shotClock">Shot Clock: <span id="timer">10</span></div>
             <div class="container">
                 <div class="gameScreen gameScreen1" id="gameScreen1">
-                    <div id="basket"></div>
-                    <div class="ball"></div>
-                    <div id="hand"></div>
-
+                        <div id="basket">
+                            <img src="Assets/goal.png" style="width: 60px; height: 80px; ">
+                            <div class="backboard"></div>
+                        </div>
+                    <div class="ball">
+                    </div>
+                    <div id="hand">
+                        <img src="Assets/player.png" style="width: 120px; height: 150px" alt="Hand Image">
+                    </div>
                 </div>
                 <!-- <div class="gameScreen gameScreen2" id="gameScreen2">Div 2</div>
                 <div class="gameScreen gameScreen3" id="gameScreen3">Div 3</div> -->
@@ -51,6 +54,7 @@
             <script src="main.js"></script>
             <!-- <script src="shot.js"></script> -->
         </section>
+        
     </main>
 </body>
 </html>
