@@ -183,7 +183,7 @@ function timer(){
         } else if( sec <= -1 && collisionCounter >= 10){
             clearInterval(timer);
             document.getElementById('result').innerHTML = 'Your alright I guess'
-        } else if( sec <= 1 && collisionCounter >= 15) {
+        } else if( sec <= -1 && collisionCounter >= 15) {
             clearInterval(timer);
             document.getElementById('result').innerHTML = 'You were Hoopin'
         }
