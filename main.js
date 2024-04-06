@@ -171,7 +171,7 @@ function updateCounter() {
 
 let shotClock = document.getElementById('timer')
 let outcome = document.getElementById('result')
-let sec = 10;
+let sec = 30;
 function timer(){
     const timer = setInterval(function(){
         document.getElementById('timer').innerHTML = sec;
