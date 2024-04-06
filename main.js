@@ -20,8 +20,6 @@ function moveBasket() {
     requestAnimationFrame(moveBasket);
 }
 
-moveBasket();
-
 // Start of Functions for the Hand
 const hand = document.getElementById('hand'); 
 let handWidth = 50; 
@@ -164,7 +162,7 @@ let shotClock = document.getElementById('timer')
 let outcome = document.getElementById('result')
 
 function timer(){
-    let sec = 10;
+    let sec = 5;
     const timer = setInterval(function(){
         document.getElementById('timer').innerHTML = sec;
         sec--;
@@ -180,7 +178,28 @@ function timer(){
     }, 1000);
 }
 
-timer()
+
+const startButton = document.getElementById('startGameButton');
+
+// Function to handle button click
+function startButtonClickHandler() {
+    // Remove the event listener to prevent multiple executions
+    startButton.removeEventListener('click', startButtonClickHandler);
+    
+    // Code to execute when the button is clicked
+    timer();
+    moveBasket(); 
+    console.log('Button clicked!');
+    // Add your logic here
+}
+
+// Add event listener to the start button
+startButton.addEventListener('click', startButtonClickHandler);
+// function startGame() {
+//     const startButton = document.getElementById('startButton');
+//     moveBasket();
+// }
+
 
 //_____________________________Game Over Screen_______________________
 
