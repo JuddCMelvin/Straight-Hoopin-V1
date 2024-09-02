@@ -57,6 +57,12 @@ body {
 .controls .nav_display {
   display: flex;
 }
+.controls .nav_display button {
+  margin: 0 3px 3px;
+}
+.controls .nav_display div {
+  margin: 0 3px 3px;
+}
 .controls .button {
   display: flex;
   justify-content: center;
@@ -95,10 +101,19 @@ body {
   background-image: url(Assets/halfcourt.png);
   border: 3px solid black;
 }
+.game-screen #basket img {
+  width: 60px;
+  height: 80px;
+}
+.game-screen #hand img {
+  width: 120px;
+  height: 150px;
+  filter: drop-shadow(10px 10px 10px #000001);
+}
 
 .header {
   background-color: #ff8700;
-  padding: 30px 60px;
+  padding: 5px 10px;
   border-radius: 5px;
 }
 

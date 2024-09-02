@@ -39,7 +39,12 @@
         @include mixins.center; 
         .nav_display {
             display: flex; 
-            
+            & button {
+                margin: 0 3px 3px; 
+            }
+            & div {
+                margin: 0 3px 3px; 
+            }
         }
         .button {
             @include mixins.center; 
@@ -51,9 +56,22 @@
     &.game-screen1 {
         @include mixins.game_screen1; 
     }
+    #basket {
+        & img {
+            width: 60px; 
+            height: 80px; 
+        }
+    }
+    #hand {
+        & img {
+            width: 120px; 
+            height: 150px; 
+            filter: drop-shadow(10px 10px 10px #000001)
+        }
+    }
 }
 
 .header {
-    @include mixins.title(large); 
+    @include mixins.title(small); 
 }
 
