@@ -1,4 +1,5 @@
 @use "variables" as *; 
+@use "functions"; 
 
 @mixin center {
     display: flex;
@@ -43,3 +44,10 @@
     background-image: url(Assets/halfcourt.png); 
     border: 3px solid black;
 }
+
+@mixin title($size) {
+    $size: functions.validate-size($size); // Validate the size using the function
+    background-color: $secondary-color;
+    padding: functions.get-padding($size); // Get padding based on size using the function
+    border-radius: 5px;
+} 

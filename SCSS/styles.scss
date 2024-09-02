@@ -24,7 +24,7 @@
                 color: black;
             }
         
-            @else if $theme ==dark {
+            @else if $theme == dark {
                 background-color: $secondary-color;
                 color: white;
             }
@@ -53,4 +53,7 @@
     }
 }
 
+.header {
+    @include mixins.title(large); 
+}
 

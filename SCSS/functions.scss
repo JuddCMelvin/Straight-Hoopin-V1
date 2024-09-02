@@ -1,0 +1,23 @@
+@function validate-size($size) {
+    @if $size !=small and $size !=medium and $size !=large {
+        @error "Invalid size `#{$size}` provided. Valid sizes are 'small', 'medium', or 'large'.";
+    }
+
+    @return $size;
+}
+
+@function get-padding($size) {
+    $size: validate-size($size); // Ensure the size is valid
+
+    @if $size ==small {
+        @return 5px 10px;
+    }
+
+    @else if $size ==medium {
+        @return 20px 40px;
+    }
+
+    @else if $size ==large {
+        @return 30px 60px;
+    }
+}

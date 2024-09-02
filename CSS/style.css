@@ -96,4 +96,10 @@ body {
   border: 3px solid black;
 }
 
+.header {
+  background-color: #ff8700;
+  padding: 30px 60px;
+  border-radius: 5px;
+}
+
 /*# sourceMappingURL=style.css.map */
