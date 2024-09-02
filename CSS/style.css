@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #00b3ff;
+    font-family: Arial, Helvetica, Serif;
+    line-height: 1.5;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    color: rgba(255, 225, 0, 0.8666666667);
+}
+
+.button:focus {
+    color: rgba(13, 160, 79, 0.8666666667);
+}
+
+.button:active {
+    color: rgba(203, 1, 179, 0.8666666667);
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node.js": "^0.0.1-security",
+    "sass": "^1.77.8"
+  }
 }

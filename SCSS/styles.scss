@@ -1,7 +1,5 @@
-    // scss variables! 
-    $primary-color: #0e6cff;
-    $secondary-color: #ff8700;
-    $fonts: Arial, Helvetica, Serif;
+@use "variables" as *; 
+@use "mixins";
 
     // basic page styling. Some of it needs compiling!
 
@@ -15,5 +13,10 @@
     background-color: $primary-color;
     font-family: $fonts;
     line-height: 1.5;
+    }
+
+    .button {
+        @include mixins.center; 
+        @include mixins.interactive_states; 
     }
 

@@ -1,0 +1,19 @@
+@use "variables" as *; 
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin interactive_states {
+    &:hover { 
+        color: $hover-color; 
+    }
+    &:focus {
+        color: $focus-color;
+    }
+    &:active {
+        color: $active-color; 
+    }
+}
