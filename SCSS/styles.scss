@@ -14,9 +14,15 @@
     font-family: $fonts;
     line-height: 1.5;
     }
-
-    .button {
+    .controls {
         @include mixins.center; 
-        @include mixins.interactive_states; 
+        .nav_display {
+            display: flex; 
+        }
+        .button {
+            @include mixins.center; 
+            @include mixins.interactive_states; 
+        }
     }
+
 
