@@ -6,6 +6,7 @@
     align-items: center;
 }
 
+
 @mixin interactive_states {
     &:hover { 
         color: $hover-color; 
@@ -16,4 +17,29 @@
     &:active {
         color: $active-color; 
     }
+}
+
+@mixin game_screen {
+    width: 600px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: $game-border; 
+    position: absolute;
+    background-color: $background-color;
+    background-image: url(/Assets/halfcourt-copy.png); 
+    background-size: cover;
+    border: 1px solid black;
+    background-repeat: no-repeat; 
+    background-position: center;
+    border-radius: $game-radius; 
+    box-shadow: $shadow;
+}
+
+@mixin game_screen1 {
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-image: url(Assets/halfcourt.png); 
+    border: 3px solid black;
 }

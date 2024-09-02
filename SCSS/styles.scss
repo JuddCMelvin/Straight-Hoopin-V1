@@ -15,15 +15,42 @@
     font-family: $fonts;
     line-height: 1.5;
     }
+
+    body {
+        font-family: $fonts;
+        line-height: 1.5;
+        @if $theme ==light {
+                background-color: $primary-color;
+                color: black;
+            }
+        
+            @else if $theme ==dark {
+                background-color: $secondary-color;
+                color: white;
+            }
+        
+            @else {
+                background-color: $tertiary-color;
+                color: black;
+            }
+        }
+
     .controls {
         @include mixins.center; 
         .nav_display {
             display: flex; 
+            
         }
         .button {
             @include mixins.center; 
             @include mixins.interactive_states; 
         }
     }
+.game-screen {
+    @include mixins.game_screen; 
+    &.game-screen1 {
+        @include mixins.game_screen1; 
+    }
+}
 
 
